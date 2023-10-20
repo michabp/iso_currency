@@ -442,7 +442,7 @@ fn write_enum_impl(file: &mut BufWriter<File>, data: &[IsoData]) {
 
 fn main() {
     let out_path = Path::new(&env::var("OUT_DIR").unwrap()).join("isodata.rs");
-
+    println!("cargo:rerun-if-changed={TSV_TABLE_PATH}");
     let isodata = read_table();
 
     {
